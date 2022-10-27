@@ -1,34 +1,34 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ¾Ç²ßÄæ¦ì
+    /// å­¸ç¿’æ¬„ä½
     /// </summary>
     
     public class LearnField : MonoBehaviour
     {
-        // Äæ¦ì Field:Àx¦s¸ê®Æ
-        // »yªk:
-        // ­×¹¢µü ¸ê®ÆÃş«¬ Äæ¦ì¦WºÙ
-        // ¨p¤H:private¡A¶È¦b¦¹Ãş§O¯à°÷¦s¨ú
+        // æ¬„ä½ Field:å„²å­˜è³‡æ–™
+        // èªæ³•:
+        // ä¿®é£¾è© è³‡æ–™é¡å‹ æ¬„ä½åç¨±
+        // ç§äºº:privateï¼Œåƒ…åœ¨æ­¤é¡åˆ¥èƒ½å¤ å­˜å–
         private int lv;
         public int heart = 10;
         public float speed = 2.5f;
         public float jump = 3.2f;
-        public string usename = "¤pÃM¤h";
+        public string usename = "å°é¨å£«";
         public bool ispass = false;
         public bool weapoon = true;
 
-        [Header("¦å¶q")]
+        [Header("è¡€é‡")]
         public int hp = 999;
-        [Tooltip("ª±®a¹Cª±¸g¹Lªº®É¶¡")]
+        [Tooltip("ç©å®¶éŠç©ç¶“éçš„æ™‚é–“")]
         public float playtime = 10.5f;
-        [Tooltip("ª±®aªºµ¥¯Å")]
+        [Tooltip("ç©å®¶çš„ç­‰ç´š")]
         [Range(1, 10)]
         public int level = 10;
         [Range(2f,10.5f)]
-        [Tooltip("ª±®a¨«¸ô³t«×")]
+        [Tooltip("ç©å®¶èµ°è·¯é€Ÿåº¦")]
         public float walkspace = 2.5f;
         [SerializeField]
         public int countboom = 7;

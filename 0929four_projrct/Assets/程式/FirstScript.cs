@@ -1,31 +1,31 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ²Ä¤@­Óµ{¦¡
+    /// ç¬¬ä¸€å€‹ç¨‹å¼
     /// </summary>
     public class FirstScript : MonoBehaviour
     {
-        #region µù¸Ñ°Ï°ì
+        #region è¨»è§£å€åŸŸ
         // Start is called before the first frame update
         
 
         #endregion
-        #region ¨Æ¥ó°Ï°ì
+        #region äº‹ä»¶å€åŸŸ
         private void Awake()
         {
             print("helloword");   
         }
         private void Start()
         {
-            print("<color=yellow>³o¬O¶}©l¨Æ¥ó</color>");  
+            print("<color=yellow>é€™æ˜¯é–‹å§‹äº‹ä»¶</color>");  
         }
         private void Update()
         {
-            print("<color=green>§ó·s¨Æ¥ó!</color>");
+            print("<color=green>æ›´æ–°äº‹ä»¶!</color>");
         }
         #endregion
 

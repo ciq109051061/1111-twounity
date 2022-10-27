@@ -1,24 +1,53 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
- /// <summary>
- /// ­¸¾÷±±¨î¾¹ 2D ¼Ò¦¡
- /// </summary>
+    /// <summary>
+    /// é£›æ©Ÿæ§åˆ¶å™¨ 2D æ¨¡å¼
+    /// </summary>
     public class AirPlayerController2D : MonoBehaviour
     {
-        [Header("²¾°Ê³t«×")]
-        [SerializeField, Range(0,10)]
+        [Header("ç§»å‹•é€Ÿåº¦")]
+        [SerializeField, Range(0, 10)]
         private float speedVertical = 3.5f;
-        [SerializeField, Range(0,10)]
+        [SerializeField, Range(0, 10)]
         private float speedHorizontal = 4f;
-        [Header("¹Ï¤ù")]
+        [Header("åœ–ç‰‡")]
         [SerializeField]
         private Sprite pictureUp;
         [SerializeField]
         private Sprite pictureMiddle;
         [SerializeField]
         private Sprite pictureDown;
+        [SerializeField,Header("åœ–ç‰‡æ¸²æŸ“å…ƒä»¶")]
+        private SpriteRenderer spr;
+
+        private void Update()
+        {
+            float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
+            transform.Translate(speedHorizontal * Time.deltaTime * h,
+                speedVertical * Time.deltaTime * v, 0);
+            if (v>0)
+            {
+                print("å¾€ä¸Š");
+                spr.sprite = pictureUp;
+            }
+            if(v<0)
+            {
+                print("å¾€ä¸‹");
+                spr.sprite = pictureDown;
+            }
+            if(v==0)
+            {
+                print("ä¸­é–“");
+                spr.sprite = pictureMiddle;
+            }
+
+
+
+
+        }
 
     }
 }
