@@ -5,18 +5,44 @@ namespace Blythe
 
     public class playerController : MonoBehaviour
     {
+        [SerializeField, Range(0, 10)]
+        private float speedHorizontal = 4f;
+       
+        [SerializeField, Range(0, 10)]
+        private float speedJump = 3f;
         
         [SerializeField]
         private Animator myAnimator;
         
+        [SerializeField]
+        private SpriteRenderer mySpriteRenderer;
+
         private void Start()
         {
             myAnimator = GetComponent<Animator>();
+            mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
-        private void Update()
+        private void FixedUpdate()
         {
+            float h = Input.GetAxis("Horizontal");
+            float j = Input.GetAxis("Jump");
+
+            transform.Translate(speedHorizontal * Time.deltaTime * h,
+                speedJump * Time.deltaTime * j, 0);
+
             
-            if(Input.GetButton("Horizontal"))
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                myAnimator.SetBool("jump", true);
+                
+            }
+            else
+            {
+                myAnimator.SetBool("jump", false);
+            }
+
+            if (Input.GetButton("Horizontal"))
             {
                 myAnimator.SetBool("walk", true);
             }
@@ -24,6 +50,18 @@ namespace Blythe
             {
                 myAnimator.SetBool("walk", false);
             }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                mySpriteRenderer.flipX = false;                
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                mySpriteRenderer.flipX = true;
+            }
+
+
         }
     }
 }
