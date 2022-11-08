@@ -7,13 +7,13 @@ namespace Blythe
     {
         [SerializeField, Range(0, 10)]
         private float speedHorizontal = 4f;
-       
+
         [SerializeField, Range(0, 10)]
         private float speedJump = 3f;
-        
+
         [SerializeField]
         private Animator myAnimator;
-        
+
         [SerializeField]
         private SpriteRenderer mySpriteRenderer;
 
@@ -22,6 +22,7 @@ namespace Blythe
             myAnimator = GetComponent<Animator>();
             mySpriteRenderer = GetComponent<SpriteRenderer>();
         }
+
         private void FixedUpdate()
         {
             float h = Input.GetAxis("Horizontal");
@@ -30,17 +31,16 @@ namespace Blythe
             transform.Translate(speedHorizontal * Time.deltaTime * h,
                 speedJump * Time.deltaTime * j, 0);
 
-            
-
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButton("Jump"))
             {
                 myAnimator.SetBool("jump", true);
-                
             }
             else
             {
                 myAnimator.SetBool("jump", false);
             }
+
+
 
             if (Input.GetButton("Horizontal"))
             {
@@ -53,14 +53,31 @@ namespace Blythe
 
             if (Input.GetKey(KeyCode.D))
             {
-                mySpriteRenderer.flipX = false;                
+                mySpriteRenderer.flipX = false;
             }
 
             if (Input.GetKey(KeyCode.A))
             {
                 mySpriteRenderer.flipX = true;
+               
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                myAnimator.SetBool("attack", true);
+            }
+            else
+            {
+                myAnimator.SetBool("attack", false);
             }
 
+            if (Input.GetButton("Jump") && Input.GetKeyDown(KeyCode.J))
+            {
+                myAnimator.SetBool("jumpattack", true);
+            }
+            else
+            {
+                myAnimator.SetBool("jumpattack", false);
+            }
 
         }
     }
