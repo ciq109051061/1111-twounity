@@ -8,7 +8,7 @@ namespace Blythe
         [SerializeField, Range(0, 10)]
         private float speedHorizontal = 4f;
 
-        [SerializeField, Range(0, 10)]
+        [SerializeField, Range(0, 20)]
         private float speedJump = 3f;
 
         [SerializeField]
