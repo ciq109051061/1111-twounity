@@ -1,17 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ¤p¤õÀs¼Q¤õ
+    /// å°ç«é¾å™´ç«
     /// </summary>
     public class dragonFireSystem : fireSystemBase
     {
-        [SerializeField, Header("¥Í¦¨¶¡¹j"), Range(0, 10)]
+        #region è‡ªå‹•å™´ç«
+
+        [SerializeField, Header("ç”Ÿæˆé–“éš”"), Range(0, 10)]
         private float dInterval = 1.5f;
+        
         private void Awake()
         {
             InvokeRepeating("SpawnBullet", 0, dInterval);
         }
+
+        #endregion
     }
 }

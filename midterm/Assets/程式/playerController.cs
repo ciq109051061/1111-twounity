@@ -1,14 +1,18 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Blythe
 {
-
+    /// <summary>
+    /// 玩家控制
+    /// </summary>
     public class playerController : MonoBehaviour
     {
-        [SerializeField, Range(0, 10)]
+        #region 變數宣告
+
+        [SerializeField, Range(0, 10),Header("移動速度")]
         private float speedHorizontal = 4f;
 
-        [SerializeField, Range(0, 20)]
+        [SerializeField, Range(0, 20), Header("跳躍速度")]
         private float speedJump = 3f;
 
         [SerializeField]
@@ -17,19 +21,31 @@ namespace Blythe
         [SerializeField]
         private SpriteRenderer mySpriteRenderer;
 
+        #endregion
+       
         private void Start()
         {
+            #region 取得元件
+
             myAnimator = GetComponent<Animator>();
             mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+            #endregion
         }
 
         private void FixedUpdate()
         {
+            #region 玩家移動
+
             float h = Input.GetAxis("Horizontal");
             float j = Input.GetAxis("Jump");
 
             transform.Translate(speedHorizontal * Time.deltaTime * h,
                 speedJump * Time.deltaTime * j, 0);
+
+            #endregion
+
+            #region 跳躍
 
             if (Input.GetButton("Jump"))
             {
@@ -40,16 +56,9 @@ namespace Blythe
                 myAnimator.SetBool("jump", false);
             }
 
+            #endregion
 
-
-            if (Input.GetButton("Horizontal"))
-            {
-                myAnimator.SetBool("walk", true);
-            }
-            else
-            {
-                myAnimator.SetBool("walk", false);
-            }
+            #region SpriteRenderer方向
 
             if (Input.GetKey(KeyCode.D))
             {
@@ -58,9 +67,13 @@ namespace Blythe
 
             if (Input.GetKey(KeyCode.A))
             {
-                mySpriteRenderer.flipX = true;
-               
+                mySpriteRenderer.flipX = true;               
             }
+
+            #endregion
+
+            #region 攻擊
+
             if (Input.GetKeyDown(KeyCode.J))
             {
                 myAnimator.SetBool("attack", true);
@@ -69,6 +82,10 @@ namespace Blythe
             {
                 myAnimator.SetBool("attack", false);
             }
+
+            #endregion
+
+            #region 跳躍攻擊
 
             if (Input.GetButton("Jump") && Input.GetKeyDown(KeyCode.J))
             {
@@ -79,6 +96,7 @@ namespace Blythe
                 myAnimator.SetBool("jumpattack", false);
             }
 
+            #endregion
         }
     }
 }

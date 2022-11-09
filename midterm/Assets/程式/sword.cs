@@ -1,12 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// �C���V
+    /// 劍氣方向
     /// </summary>
     public class sword : MonoBehaviour
     {
+        #region SpriteRenderer宣告與取得
+
         [SerializeField]
         private SpriteRenderer swordSpriteRenderer;
 
@@ -15,8 +17,11 @@ namespace Blythe
             swordSpriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        #endregion
+
         private void FixedUpdate()
         {
+            #region SpriteRenderer方向
 
             if (Input.GetKey(KeyCode.D))
             {
@@ -26,8 +31,9 @@ namespace Blythe
             if (Input.GetKey(KeyCode.A))
             {
                 swordSpriteRenderer.flipX = true;
-
             }
+
+            #endregion
         }
     }
 }

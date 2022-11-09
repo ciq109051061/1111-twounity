@@ -1,22 +1,25 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ¤l¼u¥Í¦¨ÂI
+    /// ç©å®¶å½ˆå¹•ç™¼å°„åŸºåº•
     /// </summary>
     public class fireSystemBase : MonoBehaviour
     {
-        [SerializeField, Header("¤l¼u¹w»sª«")]
+        #region é è£½ç‰©&ç”Ÿæˆé»å®£å‘Š
+
+        [SerializeField, Header("é è£½ç‰©")]
         private GameObject prefabBullet;
-        [SerializeField, Header("¤l¼u¥Í¦¨ÂI")]
+        
+        [SerializeField, Header("ç”Ÿæˆé»")]
         private Transform pointSpawn;
 
+        #endregion
 
         protected void SpawnBullet()
         {
-            Instantiate(prefabBullet, pointSpawn.position, pointSpawn.rotation);
-          
+            Instantiate(prefabBullet, pointSpawn.position, pointSpawn.rotation);         
         }
 
     }

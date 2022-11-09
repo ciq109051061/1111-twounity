@@ -1,31 +1,41 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
-
+    /// <summary>
+    /// ç©å®¶å—å‚·
+    /// </summary>
     public class playerDamageSystem : MonoBehaviour
     {
-        [SerializeField, Header("·|³y¦¨¶Ë®`ªº¥Ø¼Ğ")]
+        #region å®£å‘Š
+
+        [SerializeField, Header("æœƒé€ æˆå‚·å®³çš„ç›®æ¨™")]
         private string nameTarget;
-        [SerializeField, Header("Ãz¬µ¹w¸mª«")]
+        [SerializeField, Header("çˆ†ç‚¸é ç½®ç‰©")]
         private GameObject prefabExplosion;
 
         private Animator myAnimator;
 
+        #endregion
+
         private void Start()
         {
+            //å–å¾—animatorå…ƒä»¶
             myAnimator = GetComponent<Animator>();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // print("¸I¼²" + collision.gameObject);
+            #region å—å‚·æ­»äº¡
+
             if (collision.gameObject.name.Contains(nameTarget))
             {
                 Instantiate(prefabExplosion, transform.position, transform.rotation);               
                 Destroy(gameObject);
             }
+
+            #endregion
         }
-        
+
     }
 }

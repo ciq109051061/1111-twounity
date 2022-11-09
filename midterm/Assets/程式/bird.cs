@@ -1,11 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Blythe
 {
-
+    /// <summary>
+    /// 圖片方向
+    /// </summary>
     public class bird : MonoBehaviour
     {
-        [SerializeField]
+        #region 更改SpriteRenderer方向
+        
+        [SerializeField,Header("圖片渲染元件")]
         private SpriteRenderer birdSpriteRenderer;
 
         private void Start()
@@ -17,5 +21,7 @@ namespace Blythe
         {
             birdSpriteRenderer.flipX = true;
         }
+        
+        #endregion
     }
 }

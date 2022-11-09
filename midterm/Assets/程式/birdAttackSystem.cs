@@ -1,17 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// Åø¤l¥Í¦¨¨t²Î
+    /// ç½å­ç”Ÿæˆç³»çµ±
     /// </summary>
     public class birdAttackSystem : fireSystemBase
     {
-        [SerializeField, Header("¥Í¦¨¶¡¹j"), Range(0, 10)]
+        #region ç½å­ç”Ÿæˆ
+
+        [SerializeField, Header("ç”Ÿæˆé–“éš”"), Range(0, 10)]
         private float bInterval = 1.5f;
         private void Awake()
         {
             InvokeRepeating("SpawnBullet", 0, bInterval);
         }
+
+        #endregion
     }
 }

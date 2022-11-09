@@ -1,18 +1,22 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ª±®a¼C®ğ
+    /// ç©å®¶åŠæ°£
     /// </summary>
     public class playerFireSystem : fireSystemBase
     {
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.J))
+            #region åŠæ°£ç™¼å°„
+
+            if (Input.GetKeyDown(KeyCode.J))
             {
                 SpawnBullet();
             }
+
+            #endregion
         }
     }
 }

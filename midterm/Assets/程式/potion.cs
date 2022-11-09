@@ -1,23 +1,26 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// ���l����
+    /// 罐子消失
     /// </summary>
     public class potion : MonoBehaviour
     {
-        [SerializeField]
+        [SerializeField,Header("碰到該關鍵字罐子消失")]
         private string bNameTarget;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            
-           if (collision.gameObject.name.Contains(bNameTarget))
+            #region 碰撞消失
+
+            if (collision.gameObject.name.Contains(bNameTarget))
             {
                 
                Destroy(gameObject);
             }
+
+            #endregion
         }
     }
 }
