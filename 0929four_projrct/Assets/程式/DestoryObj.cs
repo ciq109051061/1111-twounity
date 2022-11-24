@@ -1,29 +1,29 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace Blythe
 {
     /// <summary>
-    /// §R°£ª«¥ó
+    /// åˆªé™¤ç‰©ä»¶
     /// </summary>
     public class DestoryObj : MonoBehaviour
     {
-        [SerializeField,Header("§R°£®É¶¡"),Range(0,3)]
+        [SerializeField,Header("åˆªé™¤æ™‚é–“"),Range(0,3)]
         private float destroyTime = 0.5f;
 
         private void Awake()
         {
-            //§R°£(ª«¥ó¡A§R°£®É¶¡)
+            //åˆªé™¤(ç‰©ä»¶ï¼Œåˆªé™¤æ™‚é–“)
             Destroy(gameObject, destroyTime);
 
         }
 
-        //¥i¨£¨Æ¥ó:·í´è¬V¤¸¥ó(Renderer)¥X²{¦bScene ©Î Game ®É°õ¦æ¤@¦¸
+        //å¯è¦‹äº‹ä»¶:ç•¶æ¸²æŸ“å…ƒä»¶(Renderer)å‡ºç¾åœ¨Scene æˆ– Game æ™‚åŸ·è¡Œä¸€æ¬¡
         private void OnBecameVisible()
         {
             
         }
 
-        //¤£¥i¨£¨Æ¥ó:·í´è¬V¤¸¥ó(Renderer)®ø¥¢¦bScene ©Î Game ®É°õ¦æ¤@¦¸
+        //ä¸å¯è¦‹äº‹ä»¶:ç•¶æ¸²æŸ“å…ƒä»¶(Renderer)æ¶ˆå¤±åœ¨Scene æˆ– Game æ™‚åŸ·è¡Œä¸€æ¬¡
         private void OnBecameInvisible()
         {
             Destroy(gameObject);

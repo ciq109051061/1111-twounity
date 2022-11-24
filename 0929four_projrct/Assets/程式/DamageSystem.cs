@@ -1,23 +1,40 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 namespace Blythe
     {
 
     public class DamageSystem : MonoBehaviour
     {
-        [SerializeField,Header("·|³y¦¨¶Ë®`ªº¥Ø¼Ğ")]
+        #region å®£å‘Š
+
+        [SerializeField,Header("æœƒé€ æˆå‚·å®³çš„ç›®æ¨™")]
         private string nameTarget;
-        [SerializeField,Header("Ãz¬µ¹w¸mª«")]
+        [SerializeField,Header("çˆ†ç‚¸é ç½®ç‰©")]
         private GameObject prefabExplosion;
+        [SerializeField,Header("å—å‚·éŸ³æ•ˆ")]
+        private AudioClip soundHit;
+        [SerializeField,Header("çˆ†ç‚¸éŸ³æ•ˆ")]
+        private AudioClip soundExpiosion;
+
+        #endregion
+
+        #region ç¢°æ’å¾Œçˆ†ç‚¸
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // print("¸I¼²" + collision.gameObject);
+            // print("ç¢°æ’" + collision.gameObject);
             if (collision.gameObject.name.Contains(nameTarget))
             {
                 Instantiate(prefabExplosion, transform.position, transform.rotation);
+
+                SoundManager.instance.PlaySound(soundHit, new Vector2(0.7f, 0.9f));
+                SoundManager.instance.PlaySound(soundExpiosion, new Vector2(1.2f, 1.5f));
+
                 Destroy(gameObject);
             }
         }
+
+        #endregion
+
         private void OnCollisionExit2D(Collision2D collision)
         {
             
